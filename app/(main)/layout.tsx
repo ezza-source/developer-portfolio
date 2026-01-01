@@ -39,18 +39,24 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
           {isCopilotOpen && (
             <>
-              <ResizableHandle />
-              <ResizablePanel defaultSize={25} minSize={20} maxSize={40}>
+              <ResizableHandle className="hidden md:block" />
+              <ResizablePanel defaultSize={25} minSize={20} maxSize={40} className="hidden md:block">
                 <ChatPanel onClose={() => setIsCopilotOpen(false)} />
               </ResizablePanel>
             </>
           )}
         </ResizablePanelGroup>
 
+        {isCopilotOpen && (
+          <div className="md:hidden fixed inset-x-0 bottom-0 z-50 animate-in slide-in-from-bottom duration-300">
+            <ChatPanel onClose={() => setIsCopilotOpen(false)} />
+          </div>
+        )}
+
         {!isCopilotOpen && (
           <button
             onClick={() => setIsCopilotOpen(true)}
-            className="absolute right-4 bottom-4 bg-[#0e639c] hover:bg-[#1177bb] text-white rounded-full p-3 shadow-lg transition-colors z-10"
+            className="fixed right-4 bottom-4 bg-[#0e639c] hover:bg-[#1177bb] text-white rounded-full p-3 shadow-lg transition-colors z-10"
             aria-label="Open Copilot"
           >
             <MessageSquare size={20} />

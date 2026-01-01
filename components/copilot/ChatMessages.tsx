@@ -17,11 +17,11 @@ export default function ChatMessages({ messages, isLoading }: ChatMessagesProps)
   }, [messages, isLoading]);
 
   return (
-    <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+    <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 scrollbar-thin scrollbar-thumb-[#3c3c3c] scrollbar-track-transparent">
       {messages.map((message) => (
         <div
           key={message.id}
-          className={`flex gap-3 ${message.role === "user" ? "flex-row-reverse" : ""}`}
+          className={`flex gap-3 mb-4 ${message.role === "user" ? "flex-row-reverse" : ""}`}
         >
           <div
             className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center ${
@@ -54,7 +54,7 @@ export default function ChatMessages({ messages, isLoading }: ChatMessagesProps)
         </div>
       ))}
       {isLoading && (
-        <div className="flex gap-3">
+        <div className="flex gap-3 mb-4">
           <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[#2d2d30] flex items-center justify-center">
             <Sparkles size={14} className="text-[#9cdcfe]" />
           </div>

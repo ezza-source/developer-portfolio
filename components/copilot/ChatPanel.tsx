@@ -51,7 +51,7 @@ export default function ChatPanel({ onClose }: ChatPanelProps) {
   };
 
   return (
-    <div className="h-full flex flex-col bg-[#1e1e1e] border-l border-[#333]">
+    <div className="h-[85vh] md:h-full flex flex-col bg-[#1e1e1e] border-l border-[#333] md:border-l rounded-t-3xl md:rounded-none">
       <ChatHeader onClose={onClose} />
       <ChatMessages messages={messages} isLoading={isLoading} />
       <ChatInput onSend={handleSendMessage} disabled={isLoading} />

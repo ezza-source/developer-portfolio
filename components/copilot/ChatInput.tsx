@@ -27,7 +27,7 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
   };
 
   return (
-    <div className="border-t border-[#333] bg-[#252526] p-4 flex-shrink-0">
+    <div className="sticky bottom-0 border-t border-[#333] bg-[#252526] p-4 flex-shrink-0">
       <form onSubmit={handleSubmit} className="flex gap-2">
         <textarea
           value={input}
@@ -45,7 +45,7 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
         <button
           type="submit"
           disabled={disabled || !input.trim()}
-          className="bg-[#0e639c] hover:bg-[#1177bb] disabled:bg-[#3c3c3c] disabled:text-[#858585] text-white rounded px-3 py-2 transition-colors disabled:cursor-not-allowed flex items-center justify-center"
+          className="bg-[#0e639c] hover:bg-[#1177bb] disabled:bg-[#3c3c3c] disabled:text-[#858585] text-white rounded px-3 py-2 transition-colors disabled:cursor-not-allowed flex items-center justify-center min-w-[44px]"
           aria-label="Send message"
         >
           <Send size={16} />
